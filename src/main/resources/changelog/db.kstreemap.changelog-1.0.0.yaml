@@ -52,31 +52,6 @@ databaseChangeLog:
                   type: float
                   constraints:
                     nullable: false
-
-        - createTable:
-            tableName: company
-            columns:
-              - column:
-                  name: id
-                  type: uuid
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: ticker
-                  type: varchar(20)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: name
-                  type: varchar(50)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: market_cap
-                  type: int
-                  constraints:
-                    nullable: false
               - column:
                   name: isBig
                   type: boolean

@@ -1,0 +1,133 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: dokeun.oh@car-ewallet.de
+      changes:
+        - createTable:
+            tableName: stock_history
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: ticker
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: datetime
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: company
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: ticker
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: market_cap
+                  type: float
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: company
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: ticker
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: market_cap
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: isBig
+                  type: boolean
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: financial_statements
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: per
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: pbr
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: pcr
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ev_ebitda
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: eps
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: bps
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ebitda
+                  type: float
+                  constraints:
+                    nullable: false
+
+#        - addUniqueConstraint:
+#            columnNames: provider_id
+#            tableName: credential_format

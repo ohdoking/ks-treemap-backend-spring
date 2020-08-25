@@ -23,6 +23,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// db
+	runtimeOnly 'org.postgresql:postgresql'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.liquibase:liquibase-core:3.8.8'
+	implementation 'org.postgresql:postgresql:42.2.11'
+//	implementation 'com.vladmihalcea:hibernate-types-52:2.9.13'
+
+	// test
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

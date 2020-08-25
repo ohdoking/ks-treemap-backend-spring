@@ -1,0 +1,5 @@
+databaseChangeLog:
+- include:
+    file: db.kstreemap.changelog-1.0.0.yaml
+    relativeToChangelogFile: true
+    context: common

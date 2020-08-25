@@ -1,0 +1,22 @@
+server:
+  port: 5000
+  servlet:
+    context-path: /api/v1
+
+spring:
+  #  DB config
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/mydb
+    password: mysecretpassword
+    username: myuser
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+  # liquibase context for local test data
+  liquibase:
+    change-log: classpath:changelog/db.gringott.changelog-master.yaml
+    contexts: common

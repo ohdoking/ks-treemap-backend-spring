@@ -1,0 +1,24 @@
+[
+  {
+    "name": "ms",
+    "ticker": "MSFT",
+    "area": "IT",
+    "size": 600,
+    "value": 1.3,
+    "unit": "%"
+  },{
+  "name": "apple",
+  "ticker": "AAPL",
+  "area": "IT",
+  "size": 1000,
+  "value": -10,
+  "unit": "%"
+},{
+  "name": "visa",
+  "ticker": "V",
+  "size": 20,
+  "area": "finance",
+  "value": -10,
+  "unit": "%"
+}
+]

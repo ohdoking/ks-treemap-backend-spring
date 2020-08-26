@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ohdoking.kstreemap.dto.Kind;
 import com.ohdoking.kstreemap.dto.StockDto;
 import com.ohdoking.kstreemap.dto.Type;
+import com.ohdoking.kstreemap.model.StockHistory;
 import com.ohdoking.kstreemap.repository.CompanyRepository;
 import com.ohdoking.kstreemap.repository.FinancialStatementRepository;
 import com.ohdoking.kstreemap.repository.StockHistoryRepository;
@@ -16,6 +17,7 @@ import org.springframework.util.ResourceUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +56,7 @@ public class TreeMapService {
         List<StockDto> stockJsonList = new ArrayList<>();
         Type type = getType(typeString);
         if( Kind.Date.equals(type.getKind())){
-            stockJsonList = getStockTreeMapWithDate();
+            stockJsonList = getStockTreeMapWithDate(type);
         }
         else if(Kind.Financial.equals(type.getKind())){
             stockJsonList = getStockTreeMapWithFinancial();
@@ -67,8 +69,20 @@ public class TreeMapService {
         return stockJsonList;
     }
 
-    private List<StockDto> getStockTreeMapWithDate() {
+    private List<StockDto> getStockTreeMapWithDate(Type type) {
         List<StockDto> stockJsonList = new ArrayList<>();
+
+        long millis=System.currentTimeMillis();
+        long DAY_IN_MS = 1000 * 60 * 60 * 24;
+        Date yesterday = new Date(millis - (1 * DAY_IN_MS));
+        Date targetDate = new Date(millis - (type.getDay() * DAY_IN_MS));
+
+        List<StockHistory> stockHistoryWith2Day = stockHistoryRepository.findStockHistoriesByYesterdayAndTargetDay(yesterday, targetDate);
+
+        StockHistory stockHistoryYesterday = stockHistoryWith2Day.get(0);
+        StockHistory stockHistoryTargetDay = stockHistoryWith2Day.get(1);
+
+
         return stockJsonList;
     }
 

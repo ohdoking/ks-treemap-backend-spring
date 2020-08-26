@@ -7,22 +7,15 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Timestamp;
 import java.util.UUID;
 
-@Entity(name = "company")
+@Entity(name = "stock_market")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Company {
+public class StockMarket {
     @Id
     private UUID id;
-    private String ticker;
     private String name;
-    private Float marketCap;
-    private UUID stockMarketId;
-    private boolean isUse;
-    private Timestamp createdDate;
-    private Timestamp updatedDate;
 }

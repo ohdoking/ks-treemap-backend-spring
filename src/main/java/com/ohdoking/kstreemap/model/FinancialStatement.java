@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity(name = "financial_statement")
@@ -25,5 +26,7 @@ public class FinancialStatement {
     private Float eps;
     private Float bps;
     private Float ebitda;
+    private Timestamp createdDate;
+    private Timestamp updatedDate;
 
 }

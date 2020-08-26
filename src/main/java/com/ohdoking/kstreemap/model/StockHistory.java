@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.UUID;
 
 @Entity(name = "stock_history")
@@ -16,10 +16,9 @@ import java.util.UUID;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StockHistory {
-
     @Id
     private UUID id;
-    private String ticker;
+    private UUID companyId;
     private Float price;
-    private LocalDate date;
+    private Date Date;
 }

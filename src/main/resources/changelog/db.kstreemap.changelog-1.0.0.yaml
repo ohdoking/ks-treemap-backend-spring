@@ -13,8 +13,8 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: ticker
-                  type: varchar(20)
+                  name: company_id
+                  type: uuid
                   constraints:
                     nullable: false
               - column:
@@ -53,8 +53,24 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: isBig
+                  name: stock_market_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_use
                   type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_time
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_time
+                  type: timestamp
                   constraints:
                     nullable: false
 
@@ -105,6 +121,31 @@ databaseChangeLog:
               - column:
                   name: ebitda
                   type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_time
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_time
+                  type: timestamp
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: stock_market
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(30)
                   constraints:
                     nullable: false
 
